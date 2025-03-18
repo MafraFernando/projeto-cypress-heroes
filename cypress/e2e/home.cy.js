@@ -9,16 +9,47 @@ describe("Home sem login", () => {
     login.accessLoginPage();
     home.homeWithoutLogin();
   });
-
-  describe("Home com login", () => {
-    it.only("Deve poder dar like, comprar, editar e deletar heroes", () => {
+  
+describe("Like Hero", () => {
+    it("Deve poder dar like", () => {
       login.accessLoginPage();
       login.loginButton();
       login.loginWithAnyUser("admin@test.com", "test123");
       login.loginSucessfulPage();
       home.likeHero();
-      home.buyHero();
-      home.editHero();
+    });
+    
+describe("Buy Hero", () => {
+      it("Deve poder comprar", () => {
+        login.accessLoginPage();
+        login.loginButton();
+        login.loginWithAnyUser("admin@test.com", "test123");
+        login.loginSucessfulPage();
+        home.buyHero();
+      });
+
+describe("Edit Hero", () => {
+    it("Deve poder editar heroes", () => {
+      login.accessLoginPage();
+      login.loginButton();
+      login.loginWithAnyUser("admin@test.com", "test123");
+      login.loginSucessfulPage();
+      home.editHero('Super Logistics');
+      home.confirmationHero();
+    });
+
+describe("Delet Hero", () => {
+      it("Deve poder deletar heroes", () => {
+        login.accessLoginPage();
+        login.loginButton();
+        login.loginWithAnyUser("admin@test.com", "test123");
+        login.loginSucessfulPage();
+        home.deletHero();
+        
+      });
     });
   });
 });
+});
+});
+

@@ -1,6 +1,7 @@
 class homePage {
     selectorsList() {
         const selectors = {
+            homePage: '.max-w-5xl',
             genericButton: 'button',
             usernamePlaceholder: "[data-cy='email']",
             passwordPlaceholder: "[data-cy='password']",
@@ -15,9 +16,11 @@ class homePage {
             editPrice: "[data-cy='priceInput']",
             editFans: "[data-cy='fansInput']",
             editSaves: "[data-cy='savesInput']",
-            editPowers: "[name='powers']",
+            editPowers: "[data-cy='powersSelect']",
             editAvatar: "[data-cy='avatarFile']",
-            submitButton: '.px-8 .bg-blue-700'
+            submitButton: '.px-8 .bg-blue-700',
+            genericTrashButton: "[data-cy='trash']",
+            okDeletButton: '.gap-2 > .text-white'
             
         }  
             return selectors
@@ -56,14 +59,23 @@ class homePage {
         cy.get(this.selectorsList().genericBuyButton).eq(0).click()
         cy.get(this.selectorsList().confirmBuyButton).eq(0).click()
     }
-    editHero() {
+    editHero(superPoder) {
         cy.get(this.selectorsList().genericEditButton).eq(2).click()
         cy.get(this.selectorsList().editName).clear().type('Test Hunter')
         cy.get(this.selectorsList().editPrice).clear().type('50')
         cy.get(this.selectorsList().editFans).clear().type('10')
         cy.get(this.selectorsList().editSaves).clear().type('10')
-        cy.get(this.selectorsList().editPowers)
-        // cy.get(this.selectorsList().submitButton).click()
+        cy.get(this.selectorsList().editPowers).select(superPoder)
+        cy.get(this.selectorsList().submitButton).click()
+      
+    }
+    confirmationHero() {
+        cy.get(this.selectorsList().homePage).contains('Test Hunter')
+    }
+
+    deletHero() {
+        cy.get(this.selectorsList().genericTrashButton).eq(3).click()
+        cy.get(this.selectorsList().okDeletButton).click()
     }
 }
 
