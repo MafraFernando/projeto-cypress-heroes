@@ -47,6 +47,29 @@ describe("Delet Hero", () => {
         home.deletHero();
         
       });
+
+describe("Home Button", () => {
+        it("Deve ir para a página home", () => {
+          login.accessLoginPage();
+          login.loginButton();
+          login.loginWithAnyUser("admin@test.com", "test123");
+          login.loginSucessfulPage();
+          home.homeButton();
+          
+        });
+
+describe("Logout Button", () => {
+          it("Deve ir para a página de login", () => {
+            login.accessLoginPage();
+            login.loginButton();
+            login.loginWithAnyUser("admin@test.com", "test123");
+            login.loginSucessfulPage();
+            home.logoutButton();
+            
+            
+          });
+        });
+      });
     });
   });
 });

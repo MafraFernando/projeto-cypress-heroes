@@ -20,29 +20,22 @@ class homePage {
             editAvatar: "[data-cy='avatarFile']",
             submitButton: '.px-8 .bg-blue-700',
             genericTrashButton: "[data-cy='trash']",
-            okDeletButton: '.gap-2 > .text-white'
+            okDeletButton: '.gap-2 > .text-white',
+            logoButton: "[alt='Cypress Heroes Logo']",
+            logoutButton: 'nav > .flex > :nth-child(2) > .undefined'
             
         }  
             return selectors
      }
-
-    accessLoginPage() {
-        cy.visit('http://localhost:3000/')
-    }
-
-    loginButton() {
-        cy.get(this.selectorsList().genericButton).contains('Login').click()
-    }
-    loginAnyWithUser(username, password) {
-        cy.get(this.selectorsList().usernamePlaceholder).type(username)
-        cy.get(this.selectorsList().passwordPlaceholder).type(password)
-        cy.get(this.selectorsList().genericButton).contains('Sign in').click()
-    }
-
-    loginSucessfulPage() {
-        cy.get(this.selectorsList().headerWithLogout).contains('Logout')
-    }
-
+    homeButton() {
+        cy.get(this.selectorsList().logoButton).click()
+        cy.location('pathname').should('equal', '/heroes')
+}
+    logoutButton() {
+    cy.get(this.selectorsList().logoutButton).click()
+    cy.location('pathname').should('equal', '/heroes')
+    cy.get(this.selectorsList().genericButton).contains('Login')
+} 
     homeWithoutLogin() {
         cy.get(this.selectorsList().genericLikeButton).eq(0).click()
         cy.get(this.selectorsList().windowAlert).contains('You must log in to').click()
