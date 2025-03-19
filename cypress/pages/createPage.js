@@ -9,7 +9,8 @@ class createPage {
             newPowerSelect: "[data-cy='powersSelect']",
             submitButton: '.bg-blue-700', /* eq[1] */
             homeHeroes: '.max-w-5xl',
-            backGroundCreateHero: "[novalidate='']"
+            backGroundCreateHero: "[novalidate='']",
+            newAvatar: "[accept='image/*']"
 
 
         }  
@@ -22,6 +23,7 @@ createNewHero(superPower) {
         cy.get(this.selectorsList().newFans).type('10')
         cy.get(this.selectorsList().newSaves).type('10')
         cy.get(this.selectorsList().newPowerSelect).select(superPower)
+        cy.get(this.selectorsList().newAvatar).selectFile('C:/Users/mafra/Desktop/Programação/projeto-cypress-heroes/cypress-heroes/cypress/fixtures/robot-icon.png')
         cy.get(this.selectorsList().submitButton).eq(1).click()
         cy.get(this.selectorsList().homeHeroes).contains('Super QA')
 }

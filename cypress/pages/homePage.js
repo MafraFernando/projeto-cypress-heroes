@@ -17,7 +17,7 @@ class homePage {
             editFans: "[data-cy='fansInput']",
             editSaves: "[data-cy='savesInput']",
             editPowers: "[data-cy='powersSelect']",
-            editAvatar: "[data-cy='avatarFile']",
+            editAvatar: "[accept='image/*']",
             submitButton: '.px-8 .bg-blue-700',
             genericTrashButton: "[data-cy='trash']",
             okDeletButton: '.gap-2 > .text-white',
@@ -59,6 +59,7 @@ class homePage {
         cy.get(this.selectorsList().editFans).clear().type('10')
         cy.get(this.selectorsList().editSaves).clear().type('10')
         cy.get(this.selectorsList().editPowers).select(superPoder)
+        cy.get(this.selectorsList().editAvatar).selectFile('C:/Users/mafra/Desktop/Programação/projeto-cypress-heroes/cypress-heroes/cypress/fixtures/robot-icon.png')
         cy.get(this.selectorsList().submitButton).click()
       
     }

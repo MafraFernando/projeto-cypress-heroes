@@ -7,7 +7,7 @@ const home = new homePage();
 const create = new createPage();
 
 describe("Create Hero", () => {
-  it("Deve criar novo herói", () => {
+  it.only("Deve criar novo herói", () => {
     login.accessLoginPage();
     login.loginButton();
     login.loginWithAnyUser("admin@test.com", "test123");
