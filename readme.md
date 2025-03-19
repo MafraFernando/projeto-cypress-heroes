@@ -1,3 +1,10 @@
+# My tests with Cypress Heroes:
+I performed my own automated tests with the Cypress Heroes program, creating test cases for login, home page and creating new heroes.
+
+All test cases were documented in Trello, which can be found at the following link:
+https://trello.com/invite/b/67da4f016f3243e755331007/ATTI16e0463d1b40f79069489fec98085e4d3F10BE9F/cypress-heroes
+
+
 # Cypress Heroes Demo Application
 
 This is a demo application that shows how to use Cypress to run end-to-end,
